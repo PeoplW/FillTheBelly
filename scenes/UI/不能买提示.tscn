@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi6frad76mnxk"]
+
+[ext_resource type="Texture2D" uid="uid://dstcmfq2p58er" path="res://assets/test/UI图片/全局/钱呢.png" id="1_6y4x5"]
+[ext_resource type="Script" uid="uid://b3808wspwhr2s" path="res://scripts/旧脚本（部分使用）/UI脚本/不能买提示.gd" id="2_38woc"]
+
+[node name="不能买提示" type="TextureRect"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 643.0
+offset_top = 51.0
+offset_right = -413.0
+offset_bottom = -504.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_6y4x5")
+script = ExtResource("2_38woc")

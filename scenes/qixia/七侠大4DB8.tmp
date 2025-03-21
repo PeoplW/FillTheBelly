@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://bh7px6np0oryo"]
+
+[ext_resource type="Script" path="res://scripts/场景脚本/基础大堂.gd" id="1_rklwv"]
+[ext_resource type="PackedScene" uid="uid://dlog4m44yx2di" path="res://scenes/qixia/客栈大厅.tscn" id="2_85u7f"]
+[ext_resource type="PackedScene" path="res://scenes/qixia/传送门左.tscn" id="6_lnyvp"]
+[ext_resource type="PackedScene" path="res://scenes/qixia/传送门右.tscn" id="7_3a8c4"]
+[ext_resource type="PackedScene" path="res://scenes/UI/ui界面.tscn" id="8_krnw5"]
+
+[node name="七侠客栈" type="Node2D"]
+script = ExtResource("1_rklwv")
+"大厅场景" = ExtResource("2_85u7f")
+
+[node name="镜头" type="Camera2D" parent="."]
+
+[node name="大厅节点" type="Node2D" parent="."]
+
+[node name="一楼中" type="Node2D" parent="大厅节点"]
+metadata/current_pos = ""
+
+[node name="4293600" type="Node2D" parent="大厅节点/一楼中"]
+
+[node name="客栈大厅" parent="大厅节点/一楼中/4293600" instance=ExtResource("2_85u7f")]
+
+[node name="一楼左" type="Node2D" parent="大厅节点"]
+position = Vector2(-1920, 0)
+metadata/current_pos = ""
+metadata/currrent_num = 0
+
+[node name="未命名" type="Node2D" parent="大厅节点/一楼左"]
+
+[node name="一楼右" type="Node2D" parent="大厅节点"]
+position = Vector2(1920, 0)
+metadata/current_pos = ""
+metadata/current_num = 0
+
+[node name="未命名" type="Node2D" parent="大厅节点/一楼右"]
+
+[node name="传送门" type="Node2D" parent="."]
+
+[node name="传送门左" parent="传送门" instance=ExtResource("6_lnyvp")]
+offset_left = -952.0
+offset_top = -60.0
+offset_right = -464.0
+offset_bottom = 689.0
+
+[node name="传送门右" parent="传送门" instance=ExtResource("7_3a8c4")]
+offset_left = 783.0
+offset_top = -80.0
+offset_right = 1271.0
+offset_bottom = 669.0
+
+[node name="UI内容" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UI界面" parent="UI内容" instance=ExtResource("8_krnw5")]
+layout_mode = 1
+offset_left = 584.0
+offset_top = -518.0
+offset_right = 584.0
+offset_bottom = -518.0

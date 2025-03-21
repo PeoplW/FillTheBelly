@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://bcpry0vfku23h"]
+
+[ext_resource type="Script" uid="uid://cnf10qy1ys0o3" path="res://scripts/新脚本/客人/顾客列表.gd" id="1_ia0oj"]
+[ext_resource type="Texture2D" uid="uid://bgnbg7p36blag" path="res://assets/character/客人/客人test.png" id="2_8nqxh"]
+[ext_resource type="Texture2D" uid="uid://bby8qypa02f3t" path="res://assets/character/客人/娜美.png" id="3_5lxh6"]
+[ext_resource type="Texture2D" uid="uid://cpu37svbf7m3g" path="res://assets/character/客人/山治.png" id="4_glm6g"]
+[ext_resource type="Texture2D" uid="uid://cogdvirwsa0u2" path="res://assets/character/客人/弗兰奇.png" id="5_5ejyh"]
+[ext_resource type="Texture2D" uid="uid://bmrgirheb78ty" path="res://assets/character/客人/明哥.png" id="6_ng8tx"]
+[ext_resource type="Texture2D" uid="uid://c2e4kyyd268wn" path="res://assets/character/客人/月光莫利亚.png" id="7_fsrrd"]
+
+[node name="顾客列表" type="Node2D"]
+script = ExtResource("1_ia0oj")
+
+[node name="客人test" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(7, -136)
+texture = ExtResource("2_8nqxh")
+
+[node name="娜美" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-14, -190)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_5lxh6")
+
+[node name="山治" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-14, -190)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_glm6g")
+
+[node name="弗兰奇" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-14, -190)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_5ejyh")
+
+[node name="明哥" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-14, -190)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_ng8tx")
+
+[node name="月光莫利亚" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-14, -190)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_fsrrd")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1fdknqjasg7y"]
+
+[ext_resource type="Script" uid="uid://pw03r41jfe57" path="res://scripts/全局脚本/转场景SceneChanger.gd" id="1_ti4td"]
+
+[node name="SceneChanger" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_ti4td")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 1946.0
+offset_bottom = 1089.0
+color = Color(0, 0, 0, 0)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+offset_right = 1952.0
+offset_bottom = 1177.0
+color = Color(0, 0, 0, 0)

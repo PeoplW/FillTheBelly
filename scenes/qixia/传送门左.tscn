@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl24hyvqgslpx"]
+
+[ext_resource type="Texture2D" uid="uid://d01mqroh3epir" path="res://assets/test/门/door_close.png" id="1_hovnd"]
+[ext_resource type="Texture2D" uid="uid://dolbj0wupym8u" path="res://assets/test/门/door_half_open.png" id="2_6ywvx"]
+
+[node name="传送门左" type="TextureButton"]
+offset_left = -77.0
+offset_top = -124.0
+offset_right = 411.0
+offset_bottom = 625.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("1_hovnd")
+texture_pressed = ExtResource("2_6ywvx")

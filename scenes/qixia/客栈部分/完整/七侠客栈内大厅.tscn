@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=3 uid="uid://bh7px6np0oryo"]
+
+[ext_resource type="Script" uid="uid://dcc2tk73e264" path="res://scripts/旧脚本（部分使用）/场景脚本/基础大堂.gd" id="1_kmj74"]
+[ext_resource type="PackedScene" uid="uid://dlog4m44yx2di" path="res://scenes/qixia/客栈部分/主体/客栈1室内大厅.tscn" id="2_gxdde"]
+[ext_resource type="PackedScene" uid="uid://wtxdcnavble5" path="res://scenes/UI/ui界面.tscn" id="3_j6tkf"]
+[ext_resource type="Texture2D" uid="uid://ddd320ea5qvbp" path="res://assets/icon/UI/当前位置_一层大厅.png" id="4_e0kyc"]
+[ext_resource type="Script" uid="uid://t2lr7hqp8dj0" path="res://scripts/新脚本/customer_spawn/室内客人生成.gd" id="4_pag5r"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_yi77j"]
+vertices = PackedVector2Array(951.953, 983.438, -785.773, 1254.28, -774.141, 641.688, -390.297, 537.891, -88.5469, 513.922, 525.063, 383, 949.047, 383)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(0, 4, 5, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-90, 504, 524, 373, 959, 373, 962, 992, -796, 1266, -784, 634, -392, 528)])
+
+[node name="七侠客栈内" type="Node2D"]
+position = Vector2(963, 539)
+script = ExtResource("1_kmj74")
+
+[node name="大厅节点" type="Node2D" parent="."]
+
+[node name="4293600" type="Node2D" parent="大厅节点"]
+
+[node name="客栈大厅" parent="大厅节点/4293600" instance=ExtResource("2_gxdde")]
+position = Vector2(0, -1)
+
+[node name="UI内容" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UI界面" parent="UI内容" instance=ExtResource("3_j6tkf")]
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 687.0
+offset_top = -537.0
+offset_right = 727.0
+offset_bottom = -497.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="当前位置一层大厅" type="TextureRect" parent="UI内容"]
+layout_mode = 0
+offset_left = -937.0
+offset_top = 362.0
+offset_right = -572.0
+offset_bottom = 512.0
+texture = ExtResource("4_e0kyc")
+
+[node name="客人生成" type="Node2D" parent="."]
+script = ExtResource("4_pag5r")
+metadata/pos = "店内"
+
+[node name="客人进入区域" type="Node2D" parent="客人生成"]
+
+[node name="客人进入时长" type="Timer" parent="客人生成/客人进入区域"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="客人生成/客人进入区域"]
+navigation_polygon = SubResource("NavigationPolygon_yi77j")
+
+[node name="客人区域" type="Node2D" parent="客人生成"]
+position = Vector2(-80, 918)
+
+[node name="CustomerSpawnInsidePos" type="Node2D" parent="客人生成/客人区域"]
+
+[node name="spawnpos1" type="Marker2D" parent="客人生成/客人区域/CustomerSpawnInsidePos"]
+position = Vector2(-305, -99)
+metadata/customer_num = 1
+
+[node name="spawnpos2" type="Marker2D" parent="客人生成/客人区域/CustomerSpawnInsidePos"]
+position = Vector2(-134, -160)
+metadata/customer_num = 2
+
+[node name="CustomerArrayInsidePos" type="Node2D" parent="客人生成/客人区域"]
+position = Vector2(80, -918)
+
+[node name="arraypos1" type="Marker2D" parent="客人生成/客人区域/CustomerArrayInsidePos"]
+position = Vector2(497, 495)
+metadata/has_customer = false
+
+[node name="arraypos2" type="Marker2D" parent="客人生成/客人区域/CustomerArrayInsidePos"]
+position = Vector2(339, 545)
+metadata/has_customer = false
+
+[node name="arraypos3" type="Marker2D" parent="客人生成/客人区域/CustomerArrayInsidePos"]
+position = Vector2(191, 590)
+metadata/has_customer = false
+
+[node name="arraypos4" type="Marker2D" parent="客人生成/客人区域/CustomerArrayInsidePos"]
+position = Vector2(38, 636)
+metadata/has_customer = false
+
+[node name="ExitPos" type="Node2D" parent="客人生成/客人区域"]
+
+[node name="ExitPos" type="Marker2D" parent="客人生成/客人区域/ExitPos"]
+position = Vector2(-210, 236)
+
+[node name="客人生成计时器" type="Timer" parent="."]
+
+[connection signal="timeout" from="客人生成计时器" to="客人生成" method="_on_客人生成计时器_timeout"]

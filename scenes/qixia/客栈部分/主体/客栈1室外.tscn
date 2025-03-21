@@ -1,0 +1,124 @@
+[gd_scene load_steps=16 format=3 uid="uid://w1ohaj2lu27j"]
+
+[ext_resource type="Script" uid="uid://dmdl4dpe4uro4" path="res://scripts/新脚本/客栈相关/客栈1/室外/客栈1室外.gd" id="1_3m7n3"]
+[ext_resource type="Texture2D" uid="uid://drsunonlvafr8" path="res://assets/bg/客栈1背景/室外/草图.jpg" id="1_i0y1n"]
+[ext_resource type="Texture2D" uid="uid://bmqutt2wdjg8x" path="res://assets/bg/客栈1背景/室外/草地.png" id="2_w3n4r"]
+[ext_resource type="Texture2D" uid="uid://8m5wtgrlnul3" path="res://assets/bg/客栈1背景/室外/树根.png" id="3_x5mul"]
+[ext_resource type="Texture2D" uid="uid://bts1ttjo0jrtt" path="res://assets/bg/客栈1背景/室外/树根草.png" id="4_66o1g"]
+[ext_resource type="Texture2D" uid="uid://bhx1dh8lcxvg2" path="res://assets/bg/客栈1背景/室外/休息牌.png" id="5_fd7yo"]
+[ext_resource type="Texture2D" uid="uid://dc1fk656ty5n3" path="res://assets/bg/客栈1背景/室外/营业牌.png" id="6_e288y"]
+[ext_resource type="Texture2D" uid="uid://b1f5h5njb1ei1" path="res://assets/bg/客栈1背景/室外/雨棚.png" id="6_w1pc5"]
+[ext_resource type="Texture2D" uid="uid://s1fjaj02rvmb" path="res://assets/bg/客栈1背景/室外/窗户.png" id="7_0853i"]
+[ext_resource type="Texture2D" uid="uid://qgcgryoqrpo4" path="res://assets/bg/客栈1背景/室外/门洞.png" id="8_8qb5l"]
+[ext_resource type="Texture2D" uid="uid://ca12avc4lvdot" path="res://assets/bg/客栈1背景/室外/门.png" id="11_qevk8"]
+[ext_resource type="Texture2D" uid="uid://bbfql1w8tjw0f" path="res://assets/bg/客栈1背景/室外/门上窗口1.png" id="12_sny5j"]
+[ext_resource type="Texture2D" uid="uid://cbdnk5plapsv8" path="res://assets/bg/客栈1背景/室外/门上窗口2.png" id="13_opkk2"]
+[ext_resource type="Texture2D" uid="uid://cn1c28151q4dw" path="res://assets/bg/客栈1背景/室外/门上窗口3.png" id="14_fh3dx"]
+[ext_resource type="Script" uid="uid://rha0kndm2hmg" path="res://scripts/新脚本/点击区域/客栈外/进门EnterDoor.gd" id="15_qmsof"]
+
+[node name="客栈1室外" type="Node2D"]
+position = Vector2(960, 540)
+script = ExtResource("1_3m7n3")
+
+[node name="客栈室外" type="Node2D" parent="."]
+
+[node name="背景" type="Node2D" parent="客栈室外"]
+
+[node name="草图" type="Sprite2D" parent="客栈室外/背景"]
+visible = false
+position = Vector2(-3.49989, 2)
+texture = ExtResource("1_i0y1n")
+
+[node name="客栈背景" type="Node2D" parent="客栈室外/背景"]
+
+[node name="草地" type="Sprite2D" parent="客栈室外/背景/客栈背景"]
+position = Vector2(-3, 100)
+texture = ExtResource("2_w3n4r")
+
+[node name="树根" type="Sprite2D" parent="客栈室外/背景/客栈背景"]
+position = Vector2(3, -119)
+texture = ExtResource("3_x5mul")
+
+[node name="树根草" type="Sprite2D" parent="客栈室外/背景/客栈背景"]
+position = Vector2(-2, 236)
+texture = ExtResource("4_66o1g")
+
+[node name="雨棚" type="Sprite2D" parent="客栈室外/背景/客栈背景"]
+position = Vector2(50, -363)
+texture = ExtResource("6_w1pc5")
+
+[node name="窗户" type="Sprite2D" parent="客栈室外/背景/客栈背景"]
+position = Vector2(-456, -123)
+texture = ExtResource("7_0853i")
+
+[node name="门洞" type="Sprite2D" parent="客栈室外/背景/客栈背景"]
+position = Vector2(76, -22)
+texture = ExtResource("8_8qb5l")
+
+[node name="天气" type="Node2D" parent="客栈室外/背景"]
+
+[node name="季节装饰" type="Node2D" parent="客栈室外/背景"]
+
+[node name="客栈其他内容" type="Node2D" parent="."]
+
+[node name="可交互位置" type="Node2D" parent="客栈其他内容"]
+
+[node name="店面状态牌" type="Node2D" parent="客栈其他内容/可交互位置"]
+position = Vector2(570, -137)
+
+[node name="休息牌关" type="Sprite2D" parent="客栈其他内容/可交互位置/店面状态牌"]
+texture = ExtResource("5_fd7yo")
+
+[node name="营业牌" type="Sprite2D" parent="客栈其他内容/可交互位置/店面状态牌"]
+texture = ExtResource("6_e288y")
+
+[node name="切换营业状态按钮" type="Button" parent="客栈其他内容/可交互位置/店面状态牌"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -108.0
+offset_top = -219.0
+offset_right = 132.0
+offset_bottom = 210.0
+
+[node name="店门" type="Node2D" parent="客栈其他内容/可交互位置"]
+
+[node name="门" type="Sprite2D" parent="客栈其他内容/可交互位置/店门"]
+position = Vector2(74, -16)
+texture = ExtResource("11_qevk8")
+
+[node name="门上窗" type="Node2D" parent="客栈其他内容/可交互位置/店门/门"]
+position = Vector2(-74, 16)
+
+[node name="门上窗口1" type="Sprite2D" parent="客栈其他内容/可交互位置/店门/门/门上窗"]
+position = Vector2(83, -89)
+texture = ExtResource("12_sny5j")
+
+[node name="门上窗口2" type="Sprite2D" parent="客栈其他内容/可交互位置/店门/门/门上窗"]
+visible = false
+position = Vector2(99, -91)
+texture = ExtResource("13_opkk2")
+
+[node name="门上窗口3" type="Sprite2D" parent="客栈其他内容/可交互位置/店门/门/门上窗"]
+visible = false
+position = Vector2(95, -81)
+texture = ExtResource("14_fh3dx")
+
+[node name="进门" type="Node2D" parent="客栈其他内容/可交互位置"]
+position = Vector2(74, -16)
+
+[node name="EnterDoor" type="Area2D" parent="客栈其他内容/可交互位置/进门"]
+script = ExtResource("15_qmsof")
+target_scene_path = "res://scenes/qixia/客栈部分/完整/七侠客栈内大厅.tscn"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="客栈其他内容/可交互位置/进门/EnterDoor"]
+polygon = PackedVector2Array(-209, 218, 219, 206, 183, -112, 128, -148, 17, -187, -76, -157, -124, -121, -192, -62, -211, 22)
+
+[node name="换场景遮罩" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1359.0
+offset_top = -816.0
+offset_right = 1499.0
+offset_bottom = 792.0
+
+[connection signal="pressed" from="客栈其他内容/可交互位置/店面状态牌/切换营业状态按钮" to="." method="_on_切换营业状态按钮_pressed"]

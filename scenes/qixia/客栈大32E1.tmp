@@ -1,0 +1,120 @@
+[gd_scene load_steps=12 format=3 uid="uid://dlog4m44yx2di"]
+
+[ext_resource type="Script" path="res://scripts/旧脚本（部分使用）/场景脚本/客栈大厅.gd" id="1_e8jr6"]
+[ext_resource type="Texture2D" uid="uid://cthjt8n5v7r8p" path="res://assets/bg/客栈1背景/地面.jpg" id="2_gpe53"]
+[ext_resource type="PackedScene" uid="uid://c1qntqnph2vp4" path="res://scenes/qixia/座位.tscn" id="3_j64yi"]
+[ext_resource type="Texture2D" uid="uid://b1ruq53gn36g3" path="res://assets/bg/客栈1背景/后厨门.png" id="4_yfijy"]
+[ext_resource type="PackedScene" uid="uid://dmnvvxkodnw" path="res://scenes/qixia/收银台.tscn" id="5_iq36o"]
+[ext_resource type="PackedScene" uid="uid://cd1x1geq1bcju" path="res://scenes/qixia/员工/收银员.tscn" id="5_vqree"]
+[ext_resource type="Texture2D" uid="uid://buaconsud4xuw" path="res://assets/bg/客栈1背景/楼梯.png" id="7_ja681"]
+[ext_resource type="PackedScene" uid="uid://bu8080p61ejpf" path="res://scenes/AI/顾客.tscn" id="8_75e0a"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_c5pky"]
+vertices = PackedVector2Array(-485.82, 502.328, -405.398, 524.008, -936.922, 524.977, -427.727, -54.1406, -467.063, -64.6172, 107.68, -69.5234, 60.3203, -51.3906, -840.203, 328.859, -558.07, 461.539, -935.109, 292.492, 529.281, 18.4766, 557.859, 189.961, 532.617, 169.891, 464.492, 47.8516, 169.477, 527.992, 89.8828, 503.727, 154.602, 471.383, -896.492, 166.453, -942.93, 193.859, -937.227, 95.2422, 463.641, 151.078, 291.906, 60.0313, -743.242, 336.008, -626.383, 332.992, -514.523, 392.602, -501.398, 320.789, -401.977, 356.133, -408.063, 278.953, -241.203, 342.977, -412.82, 5.49219, 47.5313, 10.0234, 422.063, 312.039, 546.57, 280.68, 552.367, 406.156, 937.008, 449.344, 945.781, 525.039, 653.57, 427.922, 195.891, 303.969, 158.359, 414.953, 105.188, 378.758, 63.6016, 278.969, 49.0781, 364.211, 302.172, 140.992, 165.172, 145.023, 132.563, 45.8203, 88.7813, 155.477, -23.9688, 352.031, 24.1875, 209.703, -397.852, 220.258, -477.703, 62.5391, -483.203, 179.25, -640.75, 83.1719, -735.617, 150.977, -865.891, 20.2422, -823.008, 154.031)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 8, 0, 2, 9), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(14, 15, 16), PackedInt32Array(17, 18, 19), PackedInt32Array(13, 12, 20, 21), PackedInt32Array(8, 7, 22), PackedInt32Array(8, 22, 23, 24), PackedInt32Array(24, 23, 25, 26), PackedInt32Array(26, 25, 27, 28), PackedInt32Array(29, 3, 6, 30), PackedInt32Array(31, 32, 33, 14), PackedInt32Array(34, 35, 14, 36), PackedInt32Array(33, 36, 14), PackedInt32Array(37, 31, 14, 16, 38), PackedInt32Array(37, 38, 39, 40), PackedInt32Array(40, 39, 41), PackedInt32Array(21, 20, 42), PackedInt32Array(21, 42, 43, 44), PackedInt32Array(30, 44, 43, 45, 29), PackedInt32Array(40, 41, 46, 47), PackedInt32Array(28, 27, 48), PackedInt32Array(29, 47, 46, 28, 48, 49), PackedInt32Array(29, 45, 47), PackedInt32Array(49, 48, 50, 51), PackedInt32Array(51, 50, 52, 53), PackedInt32Array(53, 52, 54, 19), PackedInt32Array(19, 54, 17)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-947, 91, -869, 9, -640, 73, -482, 53, -424, 2, -436, -46, -541, -74, 163, -80, 69, -44, 59, 4, 135, 36, 292, 50, 462, 38, 537, 4, 572, 214, 528, 179, 462, 161, 302, 151, 166, 155, 93, 165, 37, 212, 70, 270, 197, 294, 421, 302, 556, 268, 562, 398, 655, 418, 946, 440, 957, 535, 168, 538, 63, 506, 145, 465, 148, 420, 101, 388, 47, 374, -25, 362, -241, 353, -400, 366, -508, 401, -544, 458, -482, 493, -393, 517, -397, 534, -947, 535, -945, 278, -838, 319, -743, 326, -627, 323, -504, 311, -417, 272, -409, 226, -486, 189, -736, 161, -822, 164, -893, 176, -954, 212)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_i368t"]
+vertices = PackedVector2Array(209.57, 539.156, 202.359, 375.102, 543.18, 305.992, 552.828, 399.602, 536.133, 544.992, 951.242, 543.047, 715.797, 426.938, 889.617, 440, 943.711, 440)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 4, 3, 6), PackedInt32Array(5, 6, 7), PackedInt32Array(5, 7, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(552, 294, 562, 391, 717, 417, 890, 430, 953, 430, 962, 553, 536, 555, 200, 549, 192, 367)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_vcovm"]
+vertices = PackedVector2Array(-478.531, -44.4688, -434.141, -18.3594, -434.844, 9.42188, -540.109, 56, -683.242, 56, -819.109, 35.4688, -853.773, 10.4766, -836.633, -31.5703, -714.359, -63.0938, -618.57, -69.9297)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-844, -40, -716, -73, -618, -80, -475, -54, -424, -24, -425, 16, -538, 66, -684, 66, -823, 45, -866, 14)])
+
+[node name="客栈大厅" type="Node2D"]
+script = ExtResource("1_e8jr6")
+metadata/datingpos = 1
+metadata/DatingNum = 0
+metadata/DatingName = "4293600"
+
+[node name="客栈主厅" type="Node2D" parent="."]
+
+[node name="背景" type="Node2D" parent="客栈主厅"]
+
+[node name="11" type="Sprite2D" parent="客栈主厅/背景"]
+position = Vector2(-3.49989, 2)
+texture = ExtResource("2_gpe53")
+
+[node name="可扩展位置" type="Node2D" parent="客栈主厅/背景"]
+
+[node name="后厨门" type="TextureButton" parent="客栈主厅/背景/可扩展位置"]
+offset_left = 693.0
+offset_top = -472.0
+offset_right = 958.0
+offset_bottom = 19.0
+pivot_offset = Vector2(133, 245)
+texture_normal = ExtResource("4_yfijy")
+
+[node name="楼梯" type="TextureButton" parent="客栈主厅/背景/可扩展位置"]
+offset_left = -86.0
+offset_top = -533.0
+offset_right = 694.0
+offset_bottom = -101.0
+pivot_offset = Vector2(390, 216)
+texture_normal = ExtResource("7_ja681")
+
+[node name="客栈其他内容" type="Node2D" parent="."]
+
+[node name="座位" parent="客栈其他内容" instance=ExtResource("3_j64yi")]
+position = Vector2(-1, -9)
+
+[node name="桌椅位置area2d" type="Node2D" parent="客栈其他内容/座位"]
+visible = false
+
+[node name="1" type="Area2D" parent="客栈其他内容/座位/桌椅位置area2d"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="客栈其他内容/座位/桌椅位置area2d/1"]
+position = Vector2(-804, -64)
+polygon = PackedVector2Array(-26, 19, 102, -8, 189, -9, 318, 2, 371, 36, 382, 74, 360, 99, 274, 124, 129, 132, 6, 114, -62, 78, -59, 41)
+
+[node name="2" type="Area2D" parent="客栈其他内容/座位/桌椅位置area2d"]
+position = Vector2(429, 89)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="客栈其他内容/座位/桌椅位置area2d/2"]
+position = Vector2(-804, -64)
+polygon = PackedVector2Array(-26, 19, 102, -8, 189, -9, 318, 2, 413, 35, 425, 75, 390, 116, 287, 140, 124, 136, -9, 123, -62, 78, -59, 41)
+
+[node name="3" type="Area2D" parent="客栈其他内容/座位/桌椅位置area2d"]
+position = Vector2(928, -19)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="客栈其他内容/座位/桌椅位置area2d/3"]
+position = Vector2(-804, -64)
+polygon = PackedVector2Array(-26, 19, 102, -8, 189, -9, 318, 2, 413, 35, 425, 75, 390, 116, 287, 140, 124, 136, -9, 123, -62, 78, -59, 41)
+
+[node name="收银台" type="Node2D" parent="客栈其他内容"]
+
+[node name="收银员" parent="客栈其他内容/收银台" instance=ExtResource("5_vqree")]
+position = Vector2(808, 126)
+
+[node name="收银台" parent="客栈其他内容/收银台" instance=ExtResource("5_iq36o")]
+position = Vector2(753, 310)
+
+[node name="顾客" parent="." instance=ExtResource("8_75e0a")]
+position = Vector2(429, 490)
+scale = Vector2(15, 15)
+
+[node name="导航层" type="Node2D" parent="."]
+position = Vector2(-1, 0)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="导航层"]
+navigation_polygon = SubResource("NavigationPolygon_c5pky")
+navigation_layers = 0
+
+[node name="等待位置导航层" type="NavigationRegion2D" parent="导航层"]
+navigation_polygon = SubResource("NavigationPolygon_i368t")
+
+[node name="桌椅位置导航层" type="Node2D" parent="导航层"]
+position = Vector2(0, -9)
+
+[node name="1" type="Node2D" parent="导航层/桌椅位置导航层"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="导航层/桌椅位置导航层/1"]
+navigation_polygon = SubResource("NavigationPolygon_vcovm")
+
+[node name="NavigationLink2D" type="NavigationLink2D" parent="导航层/桌椅位置导航层/1"]
+position = Vector2(9, 2)
+start_position = Vector2(-617, 49)
+end_position = Vector2(216, 436)

@@ -1,0 +1,231 @@
+[gd_scene load_steps=17 format=3 uid="uid://qs6qnqtuhvim"]
+
+[ext_resource type="Script" path="res://scripts/UI脚本/主要菜单UI/建筑UI/客栈1建筑菜单场景.gd" id="1_aexj3"]
+[ext_resource type="Texture2D" uid="uid://cno4ud5nxsf6a" path="res://assets/test/建筑/yukimatsuri_setsuzou.png" id="2_nd8nl"]
+[ext_resource type="Texture2D" uid="uid://d4lgih5idovrb" path="res://assets/test/建筑/building_sekiyu_plant_kombinat.png" id="3_3k1y4"]
+[ext_resource type="Texture2D" uid="uid://db3xa1kgqckft" path="res://assets/test/建筑/扩展图标.png" id="4_4skqu"]
+[ext_resource type="PackedScene" uid="uid://bin3v1obc58x7" path="res://scenes/全局相关/深夜背景.tscn" id="4_7ltlj"]
+[ext_resource type="Texture2D" uid="uid://dk156w2hnqh7i" path="res://assets/test/建筑/扩展图标点击.png" id="5_bue0k"]
+[ext_resource type="Texture2D" uid="uid://da26fbbu56guf" path="res://assets/test/建筑/扩展图标悬浮.png" id="6_ypku6"]
+[ext_resource type="Script" path="res://scripts/UI脚本/主要菜单UI/建筑UI/扩展按钮texturebutton.gd" id="7_aml6e"]
+[ext_resource type="Texture2D" uid="uid://dhifh1fse566d" path="res://assets/test/建筑/基础大厅1.png" id="8_myi0o"]
+[ext_resource type="Texture2D" uid="uid://bkdpnqjkv6b21" path="res://assets/test/UI图片/按钮类/返回.png" id="9_cy844"]
+[ext_resource type="Texture2D" uid="uid://dj5o410haecny" path="res://assets/test/UI图片/按钮类/返回小.png" id="10_o2niu"]
+[ext_resource type="Script" path="res://scripts/自定义classname脚本/菜单闭按钮UI_close.gd" id="11_j4mko"]
+[ext_resource type="Script" path="res://scripts/UI脚本/UI全局相关/资源.gd" id="13_ji6qy"]
+[ext_resource type="Texture2D" uid="uid://dwur1yb5s6gob" path="res://assets/test/UI图片/UI图标/木头背景板.png" id="14_bofoi"]
+[ext_resource type="Texture2D" uid="uid://cu5vyy0xxhv0h" path="res://assets/test/UI图片/UI图标/金钱图标.png" id="15_0auab"]
+[ext_resource type="Script" path="res://scripts/UI脚本/金钱数目.gd" id="16_dda7w"]
+
+[node name="客栈1建筑菜单场景" type="Node2D"]
+position = Vector2(-999, -541)
+scale = Vector2(1.05, 1.05)
+script = ExtResource("1_aexj3")
+
+[node name="隔断遮罩" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -894.286
+offset_top = -138.095
+offset_right = 2809.72
+offset_bottom = 1844.91
+
+[node name="背景" type="Node2D" parent="."]
+
+[node name="background" parent="背景" instance=ExtResource("4_7ltlj")]
+position = Vector2(2.85715, -2.85715)
+
+[node name="小背景2" type="Sprite2D" parent="背景"]
+position = Vector2(1510, 455)
+scale = Vector2(0.668547, 0.657585)
+texture = ExtResource("2_nd8nl")
+
+[node name="小背景1" type="Sprite2D" parent="背景"]
+position = Vector2(1001, 613)
+scale = Vector2(1.84183, 0.909282)
+texture = ExtResource("3_3k1y4")
+
+[node name="建筑icon" type="Node2D" parent="."]
+visible = false
+
+[node name="扩展位置1" type="Node2D" parent="建筑icon"]
+metadata/extend_pos = "一层右"
+metadata/building_state = ""
+
+[node name="扩展位置" type="TextureButton" parent="建筑icon/扩展位置1"]
+visible = false
+offset_left = 1170.48
+offset_top = 547.619
+offset_right = 1901.48
+offset_bottom = 981.619
+scale = Vector2(0.773598, 0.889401)
+pivot_offset = Vector2(373, 214)
+texture_normal = ExtResource("4_4skqu")
+texture_pressed = ExtResource("5_bue0k")
+texture_hover = ExtResource("6_ypku6")
+script = ExtResource("7_aml6e")
+metadata/extend_pos = "一层右"
+
+[node name="扩展位置图标" type="Sprite2D" parent="建筑icon/扩展位置1"]
+position = Vector2(1546.67, 760.952)
+
+[node name="扩展位置2" type="Node2D" parent="建筑icon"]
+position = Vector2(-5.71429, -4.76191)
+metadata/extend_pos = "一层左"
+metadata/building_state = ""
+
+[node name="扩展位置" type="TextureButton" parent="建筑icon/扩展位置2"]
+visible = false
+offset_left = 1.90479
+offset_top = 544.762
+offset_right = 732.905
+offset_bottom = 978.762
+scale = Vector2(0.773598, 0.889401)
+pivot_offset = Vector2(373, 214)
+texture_normal = ExtResource("4_4skqu")
+texture_pressed = ExtResource("5_bue0k")
+texture_hover = ExtResource("6_ypku6")
+script = ExtResource("7_aml6e")
+metadata/extend_pos = "一层左"
+
+[node name="扩展位置图标" type="Sprite2D" parent="建筑icon/扩展位置2"]
+position = Vector2(377.143, 759.048)
+scale = Vector2(0.773598, 0.889401)
+
+[node name="扩展位置3" type="Node2D" parent="建筑icon"]
+position = Vector2(-6.66667, -7.61905)
+metadata/extend_pos = "二层左"
+metadata/building_state = ""
+
+[node name="扩展位置" type="TextureButton" parent="建筑icon/扩展位置3"]
+offset_left = 1.90473
+offset_top = 147.619
+offset_right = 732.905
+offset_bottom = 581.619
+scale = Vector2(0.773598, 0.889401)
+pivot_offset = Vector2(373, 214)
+texture_normal = ExtResource("4_4skqu")
+texture_pressed = ExtResource("5_bue0k")
+texture_hover = ExtResource("6_ypku6")
+script = ExtResource("7_aml6e")
+metadata/extend_pos = "二层左"
+
+[node name="扩展位置图标" type="Sprite2D" parent="建筑icon/扩展位置3"]
+position = Vector2(375.238, 360.952)
+scale = Vector2(0.773598, 0.889401)
+
+[node name="扩展位置4" type="Node2D" parent="建筑icon"]
+position = Vector2(4.76191, 0)
+metadata/extend_pos = "二层中"
+metadata/building_state = ""
+
+[node name="扩展位置" type="TextureButton" parent="建筑icon/扩展位置4"]
+offset_left = 576.191
+offset_top = 142.857
+offset_right = 1307.19
+offset_bottom = 576.857
+scale = Vector2(0.773598, 0.889401)
+pivot_offset = Vector2(373, 214)
+texture_normal = ExtResource("4_4skqu")
+texture_pressed = ExtResource("5_bue0k")
+texture_hover = ExtResource("6_ypku6")
+script = ExtResource("7_aml6e")
+metadata/extend_pos = "二层中"
+
+[node name="扩展位置图标" type="Sprite2D" parent="建筑icon/扩展位置4"]
+position = Vector2(952.381, 355.238)
+scale = Vector2(0.773598, 0.889401)
+
+[node name="扩展位置5" type="Node2D" parent="建筑icon"]
+position = Vector2(10.4762, 0)
+metadata/extend_pos = "二层右"
+metadata/building_state = ""
+
+[node name="扩展位置" type="TextureButton" parent="建筑icon/扩展位置5"]
+offset_left = 1160.0
+offset_top = 146.667
+offset_right = 1891.0
+offset_bottom = 580.667
+scale = Vector2(0.773598, 0.889401)
+pivot_offset = Vector2(373, 214)
+texture_normal = ExtResource("4_4skqu")
+texture_pressed = ExtResource("5_bue0k")
+texture_hover = ExtResource("6_ypku6")
+script = ExtResource("7_aml6e")
+metadata/extend_pos = "二层右"
+
+[node name="扩展位置图标" type="Sprite2D" parent="建筑icon/扩展位置5"]
+position = Vector2(1535.24, 359.048)
+scale = Vector2(0.773598, 0.889401)
+
+[node name="基础大堂" type="Sprite2D" parent="建筑icon"]
+position = Vector2(945, 765)
+texture = ExtResource("8_myi0o")
+
+[node name="扩展UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="返回" type="TextureButton" parent="."]
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.065
+anchor_right = 0.125
+anchor_bottom = 0.065
+offset_left = 64.7618
+offset_top = 12.381
+offset_right = 655.762
+offset_bottom = 323.381
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("9_cy844")
+texture_pressed = ExtResource("10_o2niu")
+script = ExtResource("11_j4mko")
+metadata/quit_style = 2
+
+[node name="资源" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 865.714
+offset_top = -1.90474
+offset_right = 953.714
+offset_bottom = 34.0953
+size_flags_horizontal = 4
+script = ExtResource("13_ji6qy")
+
+[node name="背景板" type="TextureRect" parent="资源"]
+layout_mode = 0
+offset_left = -109.524
+offset_top = 17.1429
+offset_right = 709.476
+offset_bottom = 478.143
+scale = Vector2(0.5, 0.3)
+texture = ExtResource("14_bofoi")
+
+[node name="钱" type="Control" parent="资源"]
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 26.0
+offset_right = 45.0
+offset_bottom = 66.0
+
+[node name="标识" type="TextureRect" parent="资源/钱"]
+layout_mode = 0
+offset_left = -95.4763
+offset_top = 12.0952
+offset_right = 222.524
+offset_bottom = 478.095
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("15_0auab")
+
+[node name="数目" type="Label" parent="资源/钱"]
+layout_mode = 0
+offset_left = -39.2856
+offset_top = 14.9524
+offset_right = 285.714
+offset_bottom = 97.9524
+theme_override_font_sizes/font_size = 60
+text = "9999"
+horizontal_alignment = 1
+script = ExtResource("16_dda7w")

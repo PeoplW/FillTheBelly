@@ -1,0 +1,135 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0ou5qegpm61p"]
+
+[ext_resource type="Script" uid="uid://7jii3yhkx4bb" path="res://scripts/旧脚本（部分使用）/UI脚本/UI全局相关/返回按钮.gd" id="1_pexeh"]
+[ext_resource type="Texture2D" uid="uid://0cjcpgrccuhx" path="res://assets/test/UI图片/UI图标/边框栏.png" id="2_cew1q"]
+[ext_resource type="Texture2D" uid="uid://bdsnlyxm178px" path="res://assets/test/UI图片/全局/全局选项菜单底.png" id="3_ykdts"]
+[ext_resource type="Texture2D" uid="uid://cm0q8c5myvxec" path="res://assets/icon/菜单选项图标/菜谱相关/菜谱可视化.jpg" id="4_hc5bn"]
+[ext_resource type="Texture2D" uid="uid://dcf61pc1ubot4" path="res://assets/icon/菜单选项图标/菜谱相关/菜谱可视化点击.jpg" id="5_xg5uj"]
+
+[node name="菜品信息界面" type="Control"]
+z_index = 4095
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -960.0
+offset_bottom = -540.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="返回" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="返回键" type="Button" parent="返回"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 47.675
+anchor_bottom = 26.975
+offset_right = -0.00012207
+script = ExtResource("1_pexeh")
+
+[node name="遮罩3" type="Control" parent="返回"]
+anchors_preset = 0
+offset_left = -362.0
+offset_top = -270.0
+offset_right = -322.0
+offset_bottom = -230.0
+
+[node name="遮罩" type="Control" parent="返回/遮罩3"]
+anchors_preset = 0
+offset_left = 544.0
+offset_top = 270.0
+offset_right = 840.0
+offset_bottom = 675.0
+
+[node name="遮罩2" type="Control" parent="返回/遮罩3"]
+anchors_preset = 0
+offset_left = 1822.0
+offset_top = 278.0
+offset_right = 2122.0
+offset_bottom = 675.0
+
+[node name="遮罩3" type="Control" parent="返回/遮罩3"]
+anchors_preset = 0
+offset_left = 564.0
+offset_top = 620.0
+offset_right = 2090.0
+offset_bottom = 1219.0
+
+[node name="背景" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -2.0
+offset_top = 117.0
+offset_right = 38.0
+offset_bottom = 157.0
+
+[node name="边框栏" type="Sprite2D" parent="背景"]
+position = Vector2(975, 98)
+scale = Vector2(2.00495, 2.00495)
+texture = ExtResource("2_cew1q")
+
+[node name="菜品研发" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 588.0
+offset_top = 669.0
+offset_right = 628.0
+offset_bottom = 709.0
+
+[node name="全局选项菜单底_菜品研发" type="Sprite2D" parent="菜品研发"]
+texture = ExtResource("3_ykdts")
+
+[node name="菜品研发按钮" type="TextureButton" parent="菜品研发/全局选项菜单底_菜品研发"]
+offset_left = -341.0
+offset_top = -246.0
+offset_right = 332.0
+offset_bottom = 138.0
+texture_normal = ExtResource("4_hc5bn")
+texture_pressed = ExtResource("5_xg5uj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="名称" type="Label" parent="菜品研发/全局选项菜单底_菜品研发"]
+offset_left = -167.0
+offset_top = 144.0
+offset_right = 153.0
+offset_bottom = 254.0
+theme_override_colors/font_color = Color(0.426339, 0.517947, 0.486195, 1)
+theme_override_colors/font_shadow_color = Color(0.674815, 0.674815, 0.674815, 1)
+theme_override_font_sizes/font_size = 80
+text = "菜品研发"
+horizontal_alignment = 1
+
+[node name="菜品查看" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1353.0
+offset_top = 669.0
+offset_right = 1393.0
+offset_bottom = 709.0
+
+[node name="全局选项菜单底_菜品查看" type="Sprite2D" parent="菜品查看"]
+texture = ExtResource("3_ykdts")
+
+[node name="菜品查看按钮" type="TextureButton" parent="菜品查看/全局选项菜单底_菜品查看"]
+offset_left = -341.0
+offset_top = -246.0
+offset_right = 332.0
+offset_bottom = 138.0
+texture_normal = ExtResource("4_hc5bn")
+texture_pressed = ExtResource("5_xg5uj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="名称" type="Label" parent="菜品查看/全局选项菜单底_菜品查看"]
+offset_left = -167.0
+offset_top = 144.0
+offset_right = 153.0
+offset_bottom = 254.0
+theme_override_colors/font_color = Color(0.426339, 0.517947, 0.486195, 1)
+theme_override_colors/font_shadow_color = Color(0.674815, 0.674815, 0.674815, 1)
+theme_override_font_sizes/font_size = 80
+text = "菜品查看"
+horizontal_alignment = 1

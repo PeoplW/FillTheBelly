@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd1x1geq1bcju"]
+
+[ext_resource type="Texture2D" uid="uid://bj528t78rvlbu" path="res://assets/character/会计/室内/变色龙1.png" id="1_ld021"]
+
+[node name="收银员" type="Node2D"]
+
+[node name="遮罩" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -159.0
+offset_top = -220.0
+offset_right = 164.0
+offset_bottom = 230.0
+
+[node name="收银员" type="Sprite2D" parent="."]
+texture = ExtResource("1_ld021")

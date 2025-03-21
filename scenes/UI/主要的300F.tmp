@@ -1,0 +1,201 @@
+[gd_scene load_steps=12 format=3 uid="uid://cjynxjttelrmw"]
+
+[ext_resource type="Texture2D" uid="uid://g13n0cyqptet" path="res://assets/test/菜单UI图片/建筑选项图标1.png" id="1_i2btm"]
+[ext_resource type="Texture2D" uid="uid://bgpx6l4qr4nno" path="res://assets/test/UI图片/按钮类/关闭.png" id="1_kjmjj"]
+[ext_resource type="Texture2D" uid="uid://wjh7bj6dyfip" path="res://assets/test/菜单UI图片/菜单背景.png" id="1_w110o"]
+[ext_resource type="Texture2D" uid="uid://cvhe5oc5qqn0j" path="res://assets/test/UI图片/按钮类/关闭小（按下.png" id="2_buk02"]
+[ext_resource type="Texture2D" uid="uid://4b2i68u61y0d" path="res://assets/test/菜单UI图片/建筑选项图标2.png" id="2_v267r"]
+[ext_resource type="Script" path="res://scripts/自定义classname脚本/菜单闭按钮UI_close.gd" id="3_58b38"]
+[ext_resource type="Script" path="res://scripts/UI脚本/主要菜单UI/二级菜单选项.gd" id="7_yjw1l"]
+[ext_resource type="Texture2D" uid="uid://bqcpuw624ry74" path="res://assets/icon/菜单选项图标/店员信息一览.png" id="8_7bd6p"]
+[ext_resource type="Texture2D" uid="uid://8yle1eo4ptav" path="res://assets/bg/整体客栈图/客栈1图.jpg" id="8_ni5e5"]
+[ext_resource type="Texture2D" uid="uid://dkcvunsjg3ejd" path="res://assets/icon/菜单选项图标/食材UI.png" id="9_bt7vt"]
+[ext_resource type="Texture2D" uid="uid://cn6loixk5aha0" path="res://assets/icon/菜单选项图标/店铺信息一览UI.png" id="10_e1eyn"]
+
+[node name="主要的菜单UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/current_pos = 1
+
+[node name="遮罩" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1405.0
+offset_top = -983.0
+offset_right = 2772.0
+offset_bottom = 1555.0
+
+[node name="菜单界面" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -840.0
+offset_top = -926.0
+offset_right = 1191.0
+offset_bottom = 762.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_w110o")
+
+[node name="关闭" type="TextureButton" parent="菜单界面"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.065
+anchor_right = 0.125
+anchor_bottom = 0.065
+offset_left = 649.875
+offset_top = 511.53
+offset_right = 1351.87
+offset_bottom = 974.53
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("1_kjmjj")
+texture_pressed = ExtResource("2_buk02")
+script = ExtResource("3_58b38")
+metadata/quit_style = 1
+
+[node name="选项图标" type="Control" parent="菜单界面"]
+anchors_preset = 0
+offset_left = 261.25
+offset_top = 697.5
+offset_right = 301.25
+offset_bottom = 737.5
+
+[node name="店铺信息" type="Control" parent="菜单界面/选项图标"]
+anchors_preset = 0
+offset_left = 815.0
+offset_top = 189.5
+offset_right = 855.0
+offset_bottom = 229.5
+
+[node name="建筑选项" type="TextureButton" parent="菜单界面/选项图标/店铺信息"]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 769.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("1_i2btm")
+texture_pressed = ExtResource("2_v267r")
+script = ExtResource("7_yjw1l")
+metadata/UI_kinds = "店铺信息"
+
+[node name="标签" type="Label" parent="菜单界面/选项图标/店铺信息"]
+layout_mode = 0
+offset_left = 21.25
+offset_top = 225.0
+offset_right = 221.25
+offset_bottom = 294.0
+theme_override_font_sizes/font_size = 50
+text = "我的客栈"
+horizontal_alignment = 1
+
+[node name="店员信息" type="Control" parent="菜单界面/选项图标"]
+anchors_preset = 0
+offset_left = 1111.25
+offset_top = 190.0
+offset_right = 1151.25
+offset_bottom = 230.0
+
+[node name="信息选项" type="TextureButton" parent="菜单界面/选项图标/店员信息"]
+layout_mode = 0
+offset_left = 31.2499
+offset_top = -35.0
+offset_right = 751.25
+offset_bottom = 1048.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("8_7bd6p")
+texture_pressed = ExtResource("2_v267r")
+stretch_mode = 0
+script = ExtResource("7_yjw1l")
+metadata/UI_kinds = "店员"
+
+[node name="标签" type="Label" parent="菜单界面/选项图标/店员信息"]
+layout_mode = 0
+offset_left = 21.25
+offset_top = 225.0
+offset_right = 221.25
+offset_bottom = 294.0
+theme_override_font_sizes/font_size = 50
+text = "店员"
+horizontal_alignment = 1
+
+[node name="食物信息" type="Control" parent="菜单界面/选项图标"]
+anchors_preset = 0
+offset_left = 1383.75
+offset_top = 191.25
+offset_right = 1423.75
+offset_bottom = 231.25
+
+[node name="建筑选项" type="TextureButton" parent="菜单界面/选项图标/食物信息"]
+layout_mode = 0
+offset_top = -7.62939e-05
+offset_right = 800.0
+offset_bottom = 800.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("9_bt7vt")
+texture_pressed = ExtResource("2_v267r")
+script = ExtResource("7_yjw1l")
+metadata/UI_kinds = "吃什么"
+
+[node name="标签" type="Label" parent="菜单界面/选项图标/食物信息"]
+layout_mode = 0
+offset_left = 1.25
+offset_top = 225.0
+offset_right = 201.25
+offset_bottom = 294.0
+theme_override_font_sizes/font_size = 50
+text = "吃什么"
+horizontal_alignment = 1
+
+[node name="其他信息" type="Control" parent="菜单界面/选项图标"]
+anchors_preset = 0
+offset_left = 932.5
+offset_top = 485.0
+offset_right = 972.5
+offset_bottom = 525.0
+
+[node name="建筑选项" type="TextureButton" parent="菜单界面/选项图标/其他信息"]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 769.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("10_e1eyn")
+texture_pressed = ExtResource("2_v267r")
+script = ExtResource("7_yjw1l")
+metadata/UI_kinds = "其他信息"
+
+[node name="标签" type="Label" parent="菜单界面/选项图标/其他信息"]
+layout_mode = 0
+offset_left = 21.2501
+offset_top = 225.0
+offset_right = 221.25
+offset_bottom = 294.0
+theme_override_font_sizes/font_size = 50
+text = "其他信息"
+horizontal_alignment = 1
+
+[node name="当前客栈整体样式" type="Control" parent="菜单界面"]
+anchors_preset = 0
+offset_left = -150.0
+offset_top = 482.5
+offset_right = -110.0
+offset_bottom = 522.5
+
+[node name="TextureRect" type="TextureRect" parent="菜单界面/当前客栈整体样式"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 40.829
+anchor_bottom = 22.999
+offset_left = 399.0
+offset_top = 290.0
+offset_right = -454.16
+offset_bottom = 150.04
+texture = ExtResource("8_ni5e5")
+expand_mode = 1

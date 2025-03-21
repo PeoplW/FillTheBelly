@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdm8438owfldw"]
+
+[ext_resource type="Script" uid="uid://bp5xluchslwi8" path="res://scenes/全局相关/计时器.gd" id="1_8qeeo"]
+
+[node name="计时器" type="Node2D"]
+script = ExtResource("1_8qeeo")
+
+[node name="客人生成计时器" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="客人生成计时器" to="." method="_on_客人生成计时器_timeout"]

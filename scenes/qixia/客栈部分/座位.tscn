@@ -1,0 +1,390 @@
+[gd_scene load_steps=20 format=3 uid="uid://c1qntqnph2vp4"]
+
+[ext_resource type="Script" uid="uid://bvuf2jeuq372d" path="res://scripts/旧脚本（部分使用）/自定义classname脚本/桌椅升级Lvl_up.gd" id="1_tj5bp"]
+[ext_resource type="Texture2D" uid="uid://cdkr2th5feg3a" path="res://assets/building/室内/桌椅/客栈桌椅1.png" id="2_t8n4s"]
+[ext_resource type="Script" uid="uid://be288il5nydlf" path="res://scripts/旧脚本（部分使用）/自定义classname脚本/桌椅图片设置Seats.gd" id="3_u1r4n"]
+[ext_resource type="Texture2D" uid="uid://ecehvqwsvdsf" path="res://assets/test/座位/一号/12.png" id="4_6o5bf"]
+[ext_resource type="Texture2D" uid="uid://bfee1doil4rlq" path="res://assets/test/座位/一号/13.png" id="5_b7isx"]
+[ext_resource type="Texture2D" uid="uid://cadnv6tfwj4w6" path="res://assets/building/室内/地毯/地毯_春.png" id="6_xlvye"]
+[ext_resource type="Texture2D" uid="uid://djmk6k18k0al3" path="res://assets/building/室内/地毯/地毯_夏.png" id="7_jik87"]
+[ext_resource type="Texture2D" uid="uid://b4ct3ohc66g6k" path="res://assets/building/室内/地毯/地毯_秋.png" id="8_skpuh"]
+[ext_resource type="Texture2D" uid="uid://cp4c31rb7if68" path="res://assets/building/室内/地毯/地毯_冬.png" id="9_jxk4d"]
+[ext_resource type="Texture2D" uid="uid://cvw0vsjjud4kq" path="res://assets/test/座位/三号/32.png" id="10_lslu6"]
+[ext_resource type="Texture2D" uid="uid://bg1crof4sti6a" path="res://assets/test/座位/三号/33.png" id="11_6wtfj"]
+[ext_resource type="Texture2D" uid="uid://dl0gglwdgfadf" path="res://assets/test/座位/二号/22.png" id="12_5j7mb"]
+[ext_resource type="Texture2D" uid="uid://chk1r12eo4x6o" path="res://assets/test/座位/二号/23.png" id="13_tqcyp"]
+[ext_resource type="Texture2D" uid="uid://do77uwdunxkkd" path="res://assets/test/座位/四号/42.png" id="14_6l7o6"]
+[ext_resource type="Texture2D" uid="uid://bd5a4idmviunt" path="res://assets/test/座位/四号/43.png" id="15_xxhlh"]
+[ext_resource type="Texture2D" uid="uid://dkcbrr03rxgrt" path="res://assets/test/座位/六号/62.png" id="16_ny037"]
+[ext_resource type="Texture2D" uid="uid://c15xm5wiyogre" path="res://assets/test/座位/六号/63.png" id="17_14vbh"]
+[ext_resource type="Texture2D" uid="uid://drbatl5jb5igu" path="res://assets/test/座位/五号/52.png" id="18_wgtrq"]
+[ext_resource type="Texture2D" uid="uid://dy60jfkygbptk" path="res://assets/test/座位/五号/53.png" id="19_ci4xu"]
+
+[node name="座位" type="Node2D"]
+
+[node name="1" type="Node2D" parent="."]
+position = Vector2(-623, -58)
+metadata/seats_num = 1
+
+[node name="点击区域" type="Area2D" parent="1"]
+script = ExtResource("1_tj5bp")
+
+[node name="area" type="CollisionPolygon2D" parent="1/点击区域"]
+position = Vector2(32, 8)
+scale = Vector2(0.21875, 0.092)
+polygon = PackedVector2Array(-566.857, -510.87, -77.7144, -684.783, 438.857, -608.696, 722.286, -445.652, 914.286, -217.391, 1056, 217.391, 950.857, 554.348, 740.571, 771.739, -4.57129, 880.435, -621.714, 771.739, -982.857, 619.565, -1083.43, 163.043, -877.714, -315.217)
+
+[node name="地毯" type="Node2D" parent="1"]
+
+[node name="地毯_春" type="Sprite2D" parent="1/地毯"]
+visible = false
+position = Vector2(23, -5)
+scale = Vector2(0.664224, 0.664224)
+texture = ExtResource("6_xlvye")
+
+[node name="地毯_夏" type="Sprite2D" parent="1/地毯"]
+position = Vector2(23, -5)
+scale = Vector2(0.664224, 0.664224)
+texture = ExtResource("7_jik87")
+
+[node name="地毯_秋" type="Sprite2D" parent="1/地毯"]
+visible = false
+position = Vector2(23, -5)
+scale = Vector2(0.664224, 0.664224)
+texture = ExtResource("8_skpuh")
+
+[node name="地毯_冬" type="Sprite2D" parent="1/地毯"]
+visible = false
+position = Vector2(23, -5)
+scale = Vector2(0.664224, 0.664224)
+texture = ExtResource("9_jxk4d")
+
+[node name="桌子等级图" type="Node2D" parent="1"]
+
+[node name="1" type="Sprite2D" parent="1/桌子等级图"]
+visibility_layer = 2
+position = Vector2(17, -25)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_t8n4s")
+script = ExtResource("3_u1r4n")
+
+[node name="2" type="Sprite2D" parent="1/桌子等级图"]
+visible = false
+visibility_layer = 2
+position = Vector2(24, -46)
+scale = Vector2(1.7069, 1.7069)
+texture = ExtResource("4_6o5bf")
+script = ExtResource("3_u1r4n")
+
+[node name="3" type="Sprite2D" parent="1/桌子等级图"]
+visible = false
+position = Vector2(25, -57)
+scale = Vector2(1.61073, 1.54576)
+texture = ExtResource("5_b7isx")
+script = ExtResource("3_u1r4n")
+
+[node name="导航地点" type="Node2D" parent="1"]
+visible = false
+
+[node name="座椅右" type="Area2D" parent="1/导航地点"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="1/导航地点/座椅右"]
+polygon = PackedVector2Array(124, 45, 210, 43, 222, -1, 168, -25, 129, -19, 111, 12)
+
+[node name="座椅左" type="Area2D" parent="1/导航地点"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="1/导航地点/座椅左"]
+position = Vector2(-297, -1)
+polygon = PackedVector2Array(124, 45, 210, 43, 222, -1, 168, -25, 129, -19, 111, 12)
+
+[node name="3" type="Node2D" parent="."]
+position = Vector2(237, -33)
+metadata/seats_num = 0
+
+[node name="点击区域" type="Area2D" parent="3"]
+script = ExtResource("1_tj5bp")
+
+[node name="area" type="CollisionPolygon2D" parent="3/点击区域"]
+visible = false
+position = Vector2(35, 19)
+scale = Vector2(0.21875, 0.092)
+polygon = PackedVector2Array(-786.286, -489.13, -205.714, -771.739, 516.572, -793.478, 923.429, -597.826, 1152, -336.957, 1248, 54.3478, 1069.71, 521.739, 150.857, 815.217, -768, 543.478, -900.571, 380.435, -1014.86, 86.9565, -932.571, -282.609)
+
+[node name="地毯" type="Node2D" parent="3"]
+
+[node name="地毯_春" type="Sprite2D" parent="3/地毯"]
+visible = false
+position = Vector2(71, -32)
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("6_xlvye")
+
+[node name="地毯_夏" type="Sprite2D" parent="3/地毯"]
+position = Vector2(71, -32)
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("7_jik87")
+
+[node name="地毯_秋" type="Sprite2D" parent="3/地毯"]
+visible = false
+position = Vector2(71, -32)
+scale = Vector2(0.689569, 0.689569)
+texture = ExtResource("8_skpuh")
+
+[node name="地毯_冬" type="Sprite2D" parent="3/地毯"]
+visible = false
+position = Vector2(71, -32)
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("9_jxk4d")
+
+[node name="桌子等级图" type="Node2D" parent="3"]
+
+[node name="1" type="Sprite2D" parent="3/桌子等级图"]
+position = Vector2(62, -30)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_t8n4s")
+script = ExtResource("3_u1r4n")
+
+[node name="2" type="Sprite2D" parent="3/桌子等级图"]
+visible = false
+position = Vector2(51, -31)
+scale = Vector2(1.3679, 1.3679)
+texture = ExtResource("10_lslu6")
+script = ExtResource("3_u1r4n")
+
+[node name="3" type="Sprite2D" parent="3/桌子等级图"]
+visible = false
+position = Vector2(59, -43)
+scale = Vector2(1.61073, 1.54576)
+texture = ExtResource("11_6wtfj")
+script = ExtResource("3_u1r4n")
+
+[node name="2" type="Node2D" parent="."]
+position = Vector2(-197, 78)
+metadata/seats_num = 2
+
+[node name="点击区域" type="Area2D" parent="2"]
+script = ExtResource("1_tj5bp")
+
+[node name="area" type="CollisionPolygon2D" parent="2/点击区域"]
+position = Vector2(35, 19)
+scale = Vector2(0.21875, 0.092)
+polygon = PackedVector2Array(-873.143, -673.913, -470.857, -847.826, 105.143, -967.391, 918.857, -641.304, 1179.43, -293.478, 1225.14, 152.174, 1042.29, 576.087, 580.571, 760.87, -4.57147, 815.217, -800, 706.522, -1065.14, 445.652, -1252.57, 43.4783, -1129.14, -413.043)
+
+[node name="地毯" type="Node2D" parent="2"]
+
+[node name="地毯_春" type="Sprite2D" parent="2/地毯"]
+visible = false
+position = Vector2(28, -12)
+scale = Vector2(0.774, 0.774)
+texture = ExtResource("6_xlvye")
+
+[node name="地毯_夏" type="Sprite2D" parent="2/地毯"]
+position = Vector2(28, -12)
+scale = Vector2(0.744033, 0.744033)
+texture = ExtResource("7_jik87")
+
+[node name="地毯_秋" type="Sprite2D" parent="2/地毯"]
+visible = false
+position = Vector2(28, -12)
+scale = Vector2(0.744, 0.744)
+texture = ExtResource("8_skpuh")
+
+[node name="地毯_冬" type="Sprite2D" parent="2/地毯"]
+visible = false
+position = Vector2(28, -12)
+scale = Vector2(0.744, 0.744)
+texture = ExtResource("9_jxk4d")
+
+[node name="桌子等级图" type="Node2D" parent="2"]
+
+[node name="1" type="Sprite2D" parent="2/桌子等级图"]
+position = Vector2(31, -34)
+scale = Vector2(0.78, 0.78)
+texture = ExtResource("2_t8n4s")
+script = ExtResource("3_u1r4n")
+
+[node name="2" type="Sprite2D" parent="2/桌子等级图"]
+visible = false
+position = Vector2(24, -46)
+scale = Vector2(1.7069, 1.7069)
+texture = ExtResource("12_5j7mb")
+script = ExtResource("3_u1r4n")
+
+[node name="3" type="Sprite2D" parent="2/桌子等级图"]
+visible = false
+position = Vector2(25, -57)
+scale = Vector2(1.61073, 1.54576)
+texture = ExtResource("13_tqcyp")
+script = ExtResource("3_u1r4n")
+
+[node name="4" type="Node2D" parent="."]
+position = Vector2(-647, 221)
+metadata/seats_num = 0
+
+[node name="点击区域" type="Area2D" parent="4"]
+script = ExtResource("1_tj5bp")
+
+[node name="area" type="CollisionPolygon2D" parent="4/点击区域"]
+position = Vector2(-40, 15)
+scale = Vector2(0.265424, 0.124485)
+polygon = PackedVector2Array(-651.787, -763.144, -30.1404, -875.608, 501.085, -787.244, 817.56, -626.582, 1005.94, -425.754, 1096.36, -184.761, 1047.38, 208.86, 666.858, 377.555, -11.3027, 538.217, -798.722, 433.787, -960.727, 369.522, -1054.92, -56.2317, -968.262, -473.953)
+
+[node name="地毯" type="Node2D" parent="4"]
+
+[node name="地毯_春" type="Sprite2D" parent="4/地毯"]
+visible = false
+position = Vector2(-57, -34)
+scale = Vector2(0.844, 0.844)
+texture = ExtResource("6_xlvye")
+
+[node name="地毯_夏" type="Sprite2D" parent="4/地毯"]
+position = Vector2(-57, -34)
+scale = Vector2(0.844, 0.844)
+texture = ExtResource("7_jik87")
+
+[node name="地毯_秋" type="Sprite2D" parent="4/地毯"]
+visible = false
+position = Vector2(-57, -34)
+scale = Vector2(0.844414, 0.844414)
+texture = ExtResource("8_skpuh")
+
+[node name="地毯_冬" type="Sprite2D" parent="4/地毯"]
+visible = false
+position = Vector2(-57, -34)
+scale = Vector2(0.844, 0.844)
+texture = ExtResource("9_jxk4d")
+
+[node name="桌子等级图" type="Node2D" parent="4"]
+position = Vector2(-50, -41)
+
+[node name="1" type="Sprite2D" parent="4/桌子等级图"]
+scale = Vector2(0.87, 0.87)
+texture = ExtResource("2_t8n4s")
+script = ExtResource("3_u1r4n")
+
+[node name="2" type="Sprite2D" parent="4/桌子等级图"]
+visible = false
+position = Vector2(-54, -38)
+scale = Vector2(2.04835, 2.04835)
+texture = ExtResource("14_6l7o6")
+script = ExtResource("3_u1r4n")
+
+[node name="3" type="Sprite2D" parent="4/桌子等级图"]
+visible = false
+position = Vector2(-53.621, -56.7608)
+scale = Vector2(1.87655, 1.80085)
+texture = ExtResource("15_xxhlh")
+script = ExtResource("3_u1r4n")
+
+[node name="6" type="Node2D" parent="."]
+position = Vector2(142, 221)
+metadata/seats_num = 0
+
+[node name="点击区域" type="Area2D" parent="6"]
+script = ExtResource("1_tj5bp")
+
+[node name="area" type="CollisionPolygon2D" parent="6/点击区域"]
+position = Vector2(116.465, 2.89724)
+scale = Vector2(0.26833, 0.112852)
+polygon = PackedVector2Array(-735.904, -326.953, -161.983, -716.844, 717.531, -672.538, 1168.47, -380.12, 1302.63, 213.578, 870.328, 727.526, 326.221, 780.693, -352.048, 700.942, -471.304, 479.413, -858.886, 71.7998)
+
+[node name="地毯" type="Node2D" parent="6"]
+
+[node name="地毯_春" type="Sprite2D" parent="6/地毯"]
+visible = false
+position = Vector2(160, -20)
+scale = Vector2(0.845, 0.845)
+texture = ExtResource("6_xlvye")
+
+[node name="地毯_夏" type="Sprite2D" parent="6/地毯"]
+position = Vector2(160, -20)
+scale = Vector2(0.845, 0.845)
+texture = ExtResource("7_jik87")
+
+[node name="地毯_秋" type="Sprite2D" parent="6/地毯"]
+visible = false
+position = Vector2(160, -20)
+scale = Vector2(0.844828, 0.844828)
+texture = ExtResource("8_skpuh")
+
+[node name="地毯_冬" type="Sprite2D" parent="6/地毯"]
+visible = false
+position = Vector2(160, -20)
+scale = Vector2(0.845, 0.845)
+texture = ExtResource("9_jxk4d")
+
+[node name="桌子等级图" type="Node2D" parent="6"]
+position = Vector2(163, -63)
+
+[node name="1" type="Sprite2D" parent="6/桌子等级图"]
+scale = Vector2(0.86, 0.86)
+texture = ExtResource("2_t8n4s")
+script = ExtResource("3_u1r4n")
+
+[node name="2" type="Sprite2D" parent="6/桌子等级图"]
+visible = false
+position = Vector2(1.90735e-06, -52)
+scale = Vector2(1.87866, 1.87866)
+texture = ExtResource("16_ny037")
+script = ExtResource("3_u1r4n")
+
+[node name="3" type="Sprite2D" parent="6/桌子等级图"]
+visible = false
+visibility_layer = 2
+position = Vector2(19, -62)
+scale = Vector2(1.94072, 1.86243)
+texture = ExtResource("17_14vbh")
+script = ExtResource("3_u1r4n")
+
+[node name="5" type="Node2D" parent="."]
+position = Vector2(-222, 405)
+
+[node name="点击区域" type="Area2D" parent="5"]
+collision_layer = 2
+script = ExtResource("1_tj5bp")
+
+[node name="area" type="CollisionPolygon2D" parent="5/点击区域"]
+position = Vector2(32, 18)
+scale = Vector2(0.278321, 0.117054)
+polygon = PackedVector2Array(-812.012, -785.962, -75.4525, -1008.08, 474.273, -931.194, 962.917, -709.074, 1214.43, -333.179, 1228.8, 170.861, 1034.78, 486.955, 154.498, 794.505, -456.308, 777.419, -1063.52, 538.213, -1268.32, 256.292, -1261.13, -290.464)
+
+[node name="地毯" type="Node2D" parent="5"]
+
+[node name="地毯_春" type="Sprite2D" parent="5/地毯"]
+visible = false
+position = Vector2(20, -27)
+texture = ExtResource("6_xlvye")
+
+[node name="地毯_夏" type="Sprite2D" parent="5/地毯"]
+position = Vector2(20, -27)
+texture = ExtResource("7_jik87")
+
+[node name="地毯_秋" type="Sprite2D" parent="5/地毯"]
+visible = false
+position = Vector2(20, -27)
+texture = ExtResource("8_skpuh")
+
+[node name="地毯_冬" type="Sprite2D" parent="5/地毯"]
+visible = false
+position = Vector2(20, -27)
+texture = ExtResource("9_jxk4d")
+
+[node name="桌子等级图" type="Node2D" parent="5"]
+
+[node name="1" type="Sprite2D" parent="5/桌子等级图"]
+position = Vector2(28, -45)
+texture = ExtResource("2_t8n4s")
+script = ExtResource("3_u1r4n")
+
+[node name="2" type="Sprite2D" parent="5/桌子等级图"]
+visible = false
+position = Vector2(29, -45)
+scale = Vector2(1.86817, 1.86817)
+texture = ExtResource("18_wgtrq")
+script = ExtResource("3_u1r4n")
+
+[node name="3" type="Sprite2D" parent="5/桌子等级图"]
+visible = false
+position = Vector2(28, -53)
+scale = Vector2(2.0911, 2.00675)
+texture = ExtResource("19_ci4xu")
+script = ExtResource("3_u1r4n")

@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://dlog4m44yx2di"]
+
+[ext_resource type="Script" uid="uid://c2yuta7mrlwqf" path="res://scripts/旧脚本（部分使用）/场景脚本/客栈大厅.gd" id="1_e8jr6"]
+[ext_resource type="Texture2D" uid="uid://cthjt8n5v7r8p" path="res://assets/bg/客栈1背景/大厅/地面.jpg" id="2_gpe53"]
+[ext_resource type="PackedScene" uid="uid://c1qntqnph2vp4" path="res://scenes/qixia/客栈部分/座位.tscn" id="3_j64yi"]
+[ext_resource type="Texture2D" uid="uid://b1ruq53gn36g3" path="res://assets/bg/客栈1背景/大厅/后厨门.png" id="4_yfijy"]
+[ext_resource type="PackedScene" uid="uid://dmnvvxkodnw" path="res://scenes/qixia/客栈部分/收银台.tscn" id="5_iq36o"]
+[ext_resource type="PackedScene" uid="uid://cd1x1geq1bcju" path="res://scenes/qixia/员工/收银员.tscn" id="5_vqree"]
+[ext_resource type="Texture2D" uid="uid://buaconsud4xuw" path="res://assets/bg/客栈1背景/大厅/楼梯.png" id="7_ja681"]
+[ext_resource type="Texture2D" uid="uid://bhtb5g74ow775" path="res://assets/bg/客栈1背景/室外/开门门内.png" id="8_ttfhn"]
+
+[node name="客栈1大厅" type="Node2D"]
+script = ExtResource("1_e8jr6")
+metadata/datingpos = 1
+metadata/DatingNum = 0
+metadata/DatingName = "4293600"
+
+[node name="客栈主厅" type="Node2D" parent="."]
+
+[node name="背景" type="Node2D" parent="客栈主厅"]
+
+[node name="11" type="Sprite2D" parent="客栈主厅/背景"]
+position = Vector2(-3.49989, 2)
+texture = ExtResource("2_gpe53")
+
+[node name="可扩展位置" type="Node2D" parent="客栈主厅/背景"]
+
+[node name="后厨门" type="Sprite2D" parent="客栈主厅/背景/可扩展位置"]
+position = Vector2(796, -257)
+texture = ExtResource("4_yfijy")
+
+[node name="按钮" type="Node2D" parent="客栈主厅/背景/可扩展位置/后厨门"]
+position = Vector2(-796, 257)
+
+[node name="楼梯" type="Sprite2D" parent="客栈主厅/背景/可扩展位置"]
+position = Vector2(448, -348)
+texture = ExtResource("7_ja681")
+
+[node name="按钮" type="Node2D" parent="客栈主厅/背景/可扩展位置/楼梯"]
+
+[node name="客栈其他内容" type="Node2D" parent="."]
+
+[node name="座位" parent="客栈其他内容" instance=ExtResource("3_j64yi")]
+position = Vector2(-1, -9)
+
+[node name="桌椅位置area2d" type="Node2D" parent="客栈其他内容/座位"]
+visible = false
+
+[node name="1" type="Area2D" parent="客栈其他内容/座位/桌椅位置area2d"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="客栈其他内容/座位/桌椅位置area2d/1"]
+position = Vector2(-769, -102)
+polygon = PackedVector2Array(-26, 19, 102, -8, 189, -9, 318, 2, 371, 36, 382, 74, 360, 99, 274, 124, 129, 132, 6, 114, -62, 78, -59, 41)
+
+[node name="2" type="Area2D" parent="客栈其他内容/座位/桌椅位置area2d"]
+position = Vector2(429, 89)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="客栈其他内容/座位/桌椅位置area2d/2"]
+position = Vector2(-781, -68)
+polygon = PackedVector2Array(-26, 19, 102, -8, 189, -9, 318, 2, 413, 35, 425, 75, 390, 116, 287, 140, 124, 136, -9, 123, -62, 78, -59, 41)
+
+[node name="3" type="Area2D" parent="客栈其他内容/座位/桌椅位置area2d"]
+position = Vector2(928, -19)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="客栈其他内容/座位/桌椅位置area2d/3"]
+position = Vector2(-796, -91)
+polygon = PackedVector2Array(-26, 19, 102, -8, 189, -9, 318, 2, 413, 35, 425, 75, 390, 116, 287, 140, 124, 136, -9, 123, -62, 78, -59, 41)
+
+[node name="收银台" type="Node2D" parent="客栈其他内容"]
+
+[node name="收银员" parent="客栈其他内容/收银台" instance=ExtResource("5_vqree")]
+position = Vector2(804, 139)
+scale = Vector2(0.560779, 0.560779)
+
+[node name="收银台" parent="客栈其他内容/收银台" instance=ExtResource("5_iq36o")]
+position = Vector2(766, 378)
+
+[node name="出去的门" type="Node2D" parent="客栈其他内容"]
+position = Vector2(757, 350)
+scale = Vector2(0.3, 0.3)
+
+[node name="Button" type="Button" parent="客栈其他内容/出去的门"]
+offset_right = 668.0
+offset_bottom = 628.0
+icon = ExtResource("8_ttfhn")
+
+[connection signal="pressed" from="客栈其他内容/出去的门/Button" to="." method="_on_button_pressed"]

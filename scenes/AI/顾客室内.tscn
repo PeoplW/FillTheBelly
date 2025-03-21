@@ -1,0 +1,365 @@
+[gd_scene load_steps=43 format=3 uid="uid://bu8080p61ejpf"]
+
+[ext_resource type="Script" uid="uid://b2gjhbnkqkvhx" path="res://scripts/新脚本/AI相关/顾客室内.gd" id="1_x6dan"]
+[ext_resource type="Texture2D" uid="uid://bgnbg7p36blag" path="res://assets/character/客人/客人test.png" id="2_xxj22"]
+[ext_resource type="Texture2D" uid="uid://bby8qypa02f3t" path="res://assets/character/客人/娜美.png" id="3_nwdxc"]
+[ext_resource type="Texture2D" uid="uid://eaw282suigre" path="res://assets/icon/UI/气泡类/排队气泡.png" id="3_t1qdi"]
+[ext_resource type="Texture2D" uid="uid://cpu37svbf7m3g" path="res://assets/character/客人/山治.png" id="4_ca3ej"]
+[ext_resource type="Texture2D" uid="uid://caa2vucrq06vx" path="res://assets/test/art/表情状态/emojis-x4-128x128/E2.png" id="4_cabyf"]
+[ext_resource type="Texture2D" uid="uid://duj5jru7uqrnj" path="res://assets/test/art/人物/Virtual Guy/Idle (32x32).png" id="5_isebd"]
+[ext_resource type="Texture2D" uid="uid://cogdvirwsa0u2" path="res://assets/character/客人/弗兰奇.png" id="5_p7gyd"]
+[ext_resource type="Texture2D" uid="uid://c0oi0ibdm1kkw" path="res://assets/test/art/人物/Virtual Guy/Run (32x32).png" id="6_2dddc"]
+[ext_resource type="Texture2D" uid="uid://bmrgirheb78ty" path="res://assets/character/客人/明哥.png" id="6_ruv0s"]
+[ext_resource type="Texture2D" uid="uid://c2e4kyyd268wn" path="res://assets/character/客人/月光莫利亚.png" id="7_duerm"]
+
+[sub_resource type="Animation" id="Animation_0h3xd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("客人:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3ylgp"]
+resource_name = "待机"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("客人:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_d8f4o"]
+resource_name = "移动"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("客人:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -61), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3psa6"]
+resource_name = "表情动画"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("气泡/emoji_happy:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.566667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("气泡/emoji_happy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.566667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -3), Vector2(0, -16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2jtob"]
+_data = {
+&"RESET": SubResource("Animation_0h3xd"),
+&"待机": SubResource("Animation_3ylgp"),
+&"移动": SubResource("Animation_d8f4o"),
+&"表情动画": SubResource("Animation_3psa6")
+}
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_oxk28"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_so5c3"]
+atlas = ExtResource("5_isebd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spp14"]
+atlas = ExtResource("5_isebd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7plnc"]
+atlas = ExtResource("5_isebd")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgvx1"]
+atlas = ExtResource("5_isebd")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4ral"]
+atlas = ExtResource("5_isebd")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_baap6"]
+atlas = ExtResource("5_isebd")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fljc"]
+atlas = ExtResource("5_isebd")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q53rn"]
+atlas = ExtResource("5_isebd")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntkkm"]
+atlas = ExtResource("5_isebd")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3np2"]
+atlas = ExtResource("5_isebd")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2m1r"]
+atlas = ExtResource("5_isebd")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2fde"]
+atlas = ExtResource("6_2dddc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0uec"]
+atlas = ExtResource("6_2dddc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_136ry"]
+atlas = ExtResource("6_2dddc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orwif"]
+atlas = ExtResource("6_2dddc")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua14r"]
+atlas = ExtResource("6_2dddc")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p4j6"]
+atlas = ExtResource("6_2dddc")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmqfa"]
+atlas = ExtResource("6_2dddc")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac6pe"]
+atlas = ExtResource("6_2dddc")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c08g5"]
+atlas = ExtResource("6_2dddc")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nf8mi"]
+atlas = ExtResource("6_2dddc")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2fr3"]
+atlas = ExtResource("6_2dddc")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5gtg"]
+atlas = ExtResource("6_2dddc")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ud3x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_so5c3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spp14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7plnc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgvx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4ral")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_baap6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fljc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q53rn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntkkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3np2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2m1r")
+}],
+"loop": true,
+"name": &"空闲",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2fde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0uec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_136ry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orwif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua14r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5p4j6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmqfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ac6pe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c08g5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nf8mi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2fr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5gtg")
+}],
+"loop": true,
+"name": &"走路",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qvsws"]
+radius = 106.0
+height = 388.0
+
+[node name="顾客室内" type="CharacterBody2D" groups=["顾客"]]
+collision_mask = 2
+script = ExtResource("1_x6dan")
+metadata/array_pos = 0
+metadata/entry_prob = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2jtob")
+}
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+blackboard_plan = SubResource("BlackboardPlan_oxk28")
+
+[node name="导航" type="Node2D" parent="."]
+position = Vector2(0, -13)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="导航"]
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="导航"]
+wait_time = 0.1
+autostart = true
+
+[node name="客人" type="Node2D" parent="."]
+
+[node name="客人test" type="Sprite2D" parent="客人"]
+position = Vector2(7, -136)
+texture = ExtResource("2_xxj22")
+
+[node name="娜美" type="Sprite2D" parent="客人"]
+visible = false
+position = Vector2(-2, -189)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_nwdxc")
+
+[node name="山治" type="Sprite2D" parent="客人"]
+visible = false
+position = Vector2(-2, -189)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_ca3ej")
+
+[node name="弗兰奇" type="Sprite2D" parent="客人"]
+visible = false
+position = Vector2(-2, -189)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_p7gyd")
+
+[node name="明哥" type="Sprite2D" parent="客人"]
+visible = false
+position = Vector2(-2, -189)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_ruv0s")
+
+[node name="月光莫利亚" type="Sprite2D" parent="客人"]
+visible = false
+position = Vector2(-2, -189)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_duerm")
+
+[node name="气泡" type="Node2D" parent="."]
+
+[node name="emoji_happy" type="Sprite2D" parent="气泡"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+position = Vector2(0, -3)
+scale = Vector2(0.117188, 0.117188)
+texture = ExtResource("4_cabyf")
+
+[node name="排队气泡" type="Sprite2D" parent="气泡"]
+visible = false
+position = Vector2(1, -39)
+scale = Vector2(0.110656, 0.110656)
+texture = ExtResource("3_t1qdi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_6ud3x")
+animation = &"走路"
+autoplay = "空闲"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -126)
+shape = SubResource("CapsuleShape2D_qvsws")
+
+[connection signal="timeout" from="导航/Timer" to="." method="_on_timer_timeout"]

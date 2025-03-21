@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bin3v1obc58x7"]
+
+[ext_resource type="Script" uid="uid://dxxma8ab0a10x" path="res://scenes/全局相关/深夜背景.gd" id="1_8667g"]
+[ext_resource type="Texture2D" uid="uid://cow051jjqj6l3" path="res://assets/test/backgrounds/夜晚背景450px2.png" id="2_y2akj"]
+
+[node name="background" type="Node2D"]
+script = ExtResource("1_8667g")
+
+[node name="BgYozoraNightSky" type="TextureRect" parent="."]
+offset_right = 2372.0
+offset_bottom = 1532.0
+texture = ExtResource("2_y2akj")
+stretch_mode = 1

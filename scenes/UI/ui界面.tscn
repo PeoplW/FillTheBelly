@@ -1,0 +1,123 @@
+[gd_scene load_steps=8 format=3 uid="uid://wtxdcnavble5"]
+
+[ext_resource type="Script" uid="uid://nu13s2n8f2k1" path="res://scripts/旧脚本（部分使用）/UI脚本/ui界面.gd" id="1_7xf5o"]
+[ext_resource type="Texture2D" uid="uid://cvhryfeu05eko" path="res://assets/icon/UI/资源.png" id="2_8o5oq"]
+[ext_resource type="Script" uid="uid://bcjd8njh55y2o" path="res://scripts/旧脚本（部分使用）/UI脚本/金钱数目.gd" id="4_nd2n1"]
+[ext_resource type="Texture2D" uid="uid://daie2j50yc0yw" path="res://assets/icon/UI/菜单.png" id="5_m6fw8"]
+[ext_resource type="Texture2D" uid="uid://c55abts2yt46p" path="res://assets/test/菜单UI图片/菜单UI2.png" id="6_n55c5"]
+[ext_resource type="Texture2D" uid="uid://cqwqs4nxh2nrt" path="res://assets/test/菜单UI图片/新闻菜单UI3.png" id="7_rwotr"]
+[ext_resource type="Texture2D" uid="uid://ccg8omd7p8ca2" path="res://assets/icon/UI/新闻_节日.png" id="7_ylvnj"]
+
+[node name="UI界面" type="Control"]
+z_index = 4090
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7xf5o")
+
+[node name="资源" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -1489.0
+offset_top = -1.0
+offset_right = -1401.0
+offset_bottom = 35.0
+
+[node name="资源背景" type="TextureRect" parent="资源"]
+layout_mode = 0
+offset_left = -120.0
+offset_top = 29.0
+offset_right = 415.0
+offset_bottom = 147.0
+texture = ExtResource("2_8o5oq")
+
+[node name="钱" type="Control" parent="资源"]
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 26.0
+offset_right = 45.0
+offset_bottom = 66.0
+
+[node name="数目" type="Label" parent="资源/钱"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 379.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 60
+text = "9999"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("4_nd2n1")
+
+[node name="当前大厅位置标签" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = -1638.0
+offset_top = 952.0
+offset_right = -1598.0
+offset_bottom = 992.0
+
+[node name="背景" type="ColorRect" parent="当前大厅位置标签"]
+layout_mode = 0
+offset_top = 6.0
+offset_right = 286.0
+offset_bottom = 117.0
+color = Color(0.284193, 0.179484, 0.0603596, 1)
+
+[node name="大厅提示" type="Label" parent="当前大厅位置标签"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 22.0
+offset_right = 280.0
+offset_bottom = 91.0
+theme_override_font_sizes/font_size = 40
+text = "2号大厅测试"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="菜单UI" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 29.0
+offset_top = -5.0
+offset_right = 69.0
+offset_bottom = 35.0
+
+[node name="标识" type="TextureButton" parent="菜单UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -35.221
+anchor_top = 2.807
+anchor_right = -35.221
+anchor_bottom = 2.807
+offset_left = 351.84
+offset_top = -92.28
+offset_right = 479.84
+offset_bottom = 46.72
+texture_normal = ExtResource("5_m6fw8")
+texture_pressed = ExtResource("6_n55c5")
+
+[node name="新闻菜单UI" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 33.0
+offset_top = -2.0
+offset_right = 73.0
+offset_bottom = 38.0
+
+[node name="TextureButton" type="TextureButton" parent="新闻菜单UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -35.221
+anchor_top = 2.807
+anchor_right = -35.221
+anchor_bottom = 2.807
+offset_left = 511.84
+offset_top = -98.28
+offset_right = 656.84
+offset_bottom = 42.72
+texture_normal = ExtResource("7_ylvnj")
+texture_pressed = ExtResource("7_rwotr")
+
+[connection signal="pressed" from="菜单UI/标识" to="." method="_on_标识_pressed"]

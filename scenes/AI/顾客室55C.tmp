@@ -1,0 +1,165 @@
+[gd_scene load_steps=16 format=3 uid="uid://bxadshklbnlic"]
+
+[ext_resource type="Script" path="res://scripts/新脚本/AI相关/顾客室外(排队).gd" id="1_4mmgq"]
+[ext_resource type="Texture2D" uid="uid://bgnbg7p36blag" path="res://assets/character/客人/客人test.png" id="2_2l8q4"]
+[ext_resource type="Script" path="res://scripts/新脚本/客人/客人信息.gd" id="2_rgf7f"]
+[ext_resource type="Script" path="res://scripts/新脚本/AI相关/状态机/statemachine.gd" id="3_wh50v"]
+[ext_resource type="Script" path="res://scripts/新脚本/AI相关/状态机/TestCustomerState/Customer_Walk_state.gd" id="4_lq43a"]
+[ext_resource type="Script" path="res://scripts/新脚本/AI相关/状态机/TestCustomerState/Customer_Array_state.gd" id="5_4bakh"]
+[ext_resource type="Texture2D" uid="uid://caa2vucrq06vx" path="res://assets/test/art/表情状态/emojis-x4-128x128/E2.png" id="6_kdh3a"]
+[ext_resource type="Texture2D" uid="uid://eaw282suigre" path="res://assets/icon/UI/气泡类/排队气泡.png" id="7_kj736"]
+
+[sub_resource type="Animation" id="Animation_0h3xd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("客人/客人test:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7, -136)]
+}
+
+[sub_resource type="Animation" id="Animation_3ylgp"]
+resource_name = "待机"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("客人/客人test:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7, -136)]
+}
+
+[sub_resource type="Animation" id="Animation_d8f4o"]
+resource_name = "移动"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("客人/客人test:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(7, -136), Vector2(7, -197), Vector2(7, -136)]
+}
+
+[sub_resource type="Animation" id="Animation_3psa6"]
+resource_name = "表情动画"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("气泡/emoji_happy:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.566667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("气泡/emoji_happy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.566667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -3), Vector2(0, -16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2jtob"]
+_data = {
+"RESET": SubResource("Animation_0h3xd"),
+"待机": SubResource("Animation_3ylgp"),
+"移动": SubResource("Animation_d8f4o"),
+"表情动画": SubResource("Animation_3psa6")
+}
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_oxk28"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5cnl0"]
+radius = 132.095
+
+[node name="顾客室外（排队）" type="CharacterBody2D" groups=["顾客"]]
+z_index = 4000
+y_sort_enabled = true
+collision_mask = 2
+script = ExtResource("1_4mmgq")
+metadata/array_pos = 0
+metadata/entry_prob = 60
+metadata/npc_num = 0
+metadata/entry_door = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2jtob")
+}
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+blackboard_plan = SubResource("BlackboardPlan_oxk28")
+
+[node name="导航" type="Node2D" parent="."]
+position = Vector2(0, -13)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="导航"]
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="导航"]
+wait_time = 0.1
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -62)
+shape = SubResource("CircleShape2D_5cnl0")
+
+[node name="客人" type="Node2D" parent="."]
+script = ExtResource("2_rgf7f")
+
+[node name="客人test" type="Sprite2D" parent="客人"]
+position = Vector2(7, -136)
+texture = ExtResource("2_2l8q4")
+metadata/entry_prob = 40
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("init_state")]
+script = ExtResource("3_wh50v")
+init_state = NodePath("CustomerArray")
+
+[node name="CustomerWalk" type="Node" parent="StateMachine"]
+script = ExtResource("4_lq43a")
+
+[node name="CustomerArray" type="Node" parent="StateMachine"]
+script = ExtResource("5_4bakh")
+
+[node name="气泡" type="Node2D" parent="."]
+
+[node name="emoji_happy" type="Sprite2D" parent="气泡"]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+scale = Vector2(0.117188, 0.117188)
+texture = ExtResource("6_kdh3a")
+
+[node name="排队气泡" type="Sprite2D" parent="气泡"]
+visible = false
+position = Vector2(1, -39)
+scale = Vector2(0.110656, 0.110656)
+texture = ExtResource("7_kj736")
+
+[connection signal="timeout" from="导航/Timer" to="." method="_on_timer_timeout"]

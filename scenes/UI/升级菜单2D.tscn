@@ -1,0 +1,143 @@
+[gd_scene load_steps=13 format=3 uid="uid://d1gu3v2r1llmj"]
+
+[ext_resource type="Script" uid="uid://br0so4pw6fn5l" path="res://scripts/旧脚本（部分使用）/UI脚本/桌子相关/升级菜单2d.gd" id="1_1udie"]
+[ext_resource type="Script" uid="uid://cp2yyqwlwxu73" path="res://scripts/旧脚本（部分使用）/UI脚本/桌号.gd" id="1_gchvd"]
+[ext_resource type="Texture2D" uid="uid://duwfgoqy17o84" path="res://assets/test/图片/芭蕉叶.png" id="1_p3t33"]
+[ext_resource type="Script" uid="uid://c2paiqk7fljpi" path="res://scripts/旧脚本（部分使用）/UI脚本/价格.gd" id="3_5kclm"]
+[ext_resource type="Script" uid="uid://b03f25hvnhkge" path="res://scripts/旧脚本（部分使用）/自定义classname脚本/桌椅UI升级应图片Seats_images_UI.gd" id="5_47ckn"]
+[ext_resource type="Texture2D" uid="uid://cdkr2th5feg3a" path="res://assets/building/室内/桌椅/客栈桌椅1.png" id="5_mtuwe"]
+[ext_resource type="Script" uid="uid://03sgvhw16d76" path="res://scripts/旧脚本（部分使用）/自定义classname脚本/升级按钮lvlup_button.gd" id="5_xljnf"]
+[ext_resource type="Texture2D" uid="uid://ecehvqwsvdsf" path="res://assets/test/座位/一号/12.png" id="6_n4yb0"]
+[ext_resource type="Texture2D" uid="uid://bgpx6l4qr4nno" path="res://assets/test/UI图片/按钮类/关闭.png" id="6_togxx"]
+[ext_resource type="Texture2D" uid="uid://cvhe5oc5qqn0j" path="res://assets/test/UI图片/按钮类/关闭小（按下.png" id="7_0ssfh"]
+[ext_resource type="Texture2D" uid="uid://bfee1doil4rlq" path="res://assets/test/座位/一号/13.png" id="7_5lltm"]
+[ext_resource type="Script" uid="uid://dxxmtwj5nb5a5" path="res://scripts/旧脚本（部分使用）/自定义classname脚本/菜单闭按钮UI_close.gd" id="8_yvgb2"]
+
+[node name="升级菜单2d" type="Control"]
+z_index = 4096
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1udie")
+
+[node name="遮罩" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -554.0
+offset_top = -932.0
+offset_right = 2182.0
+offset_bottom = 263.0
+
+[node name="菜单界面" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = -463.0
+offset_right = 276.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.489022, 0.408391, 0.156297, 1)
+
+[node name="桌号" type="Control" parent="菜单界面"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="桌号" type="TextEdit" parent="菜单界面/桌号"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 13.0
+offset_right = 370.0
+offset_bottom = 97.0
+theme_override_font_sizes/font_size = 50
+text = " 20号桌"
+minimap_width = 166
+script = ExtResource("1_gchvd")
+
+[node name="遮罩" type="Control" parent="菜单界面/桌号"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 176.0
+offset_top = 13.0
+offset_right = 370.0
+offset_bottom = 97.0
+
+[node name="升级价格" type="Control" parent="菜单界面"]
+anchors_preset = 0
+offset_left = 248.0
+offset_top = 434.0
+offset_right = 288.0
+offset_bottom = 474.0
+
+[node name="价格图标" type="Sprite2D" parent="菜单界面/升级价格"]
+position = Vector2(-113.875, -46.8464)
+scale = Vector2(0.137163, 0.137163)
+texture = ExtResource("1_p3t33")
+
+[node name="价格" type="Label" parent="菜单界面/升级价格"]
+layout_mode = 0
+offset_left = -57.8751
+offset_top = -80.8464
+offset_right = 28.1249
+offset_bottom = -11.8464
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+script = ExtResource("3_5kclm")
+
+[node name="桌椅图" type="Node2D" parent="菜单界面"]
+position = Vector2(-673, -77)
+
+[node name="1" type="Sprite2D" parent="菜单界面/桌椅图"]
+position = Vector2(842, 327)
+scale = Vector2(0.52263, 0.52263)
+texture = ExtResource("5_mtuwe")
+script = ExtResource("5_47ckn")
+
+[node name="2" type="Sprite2D" parent="菜单界面/桌椅图"]
+visible = false
+position = Vector2(857, 316)
+scale = Vector2(1.96552, 1.96552)
+texture = ExtResource("6_n4yb0")
+script = ExtResource("5_47ckn")
+
+[node name="3" type="Sprite2D" parent="菜单界面/桌椅图"]
+visible = false
+position = Vector2(863, 310)
+scale = Vector2(1.63311, 1.63311)
+texture = ExtResource("7_5lltm")
+script = ExtResource("5_47ckn")
+
+[node name="升级_购买" type="Button" parent="菜单界面"]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 212.0
+offset_right = 536.0
+offset_bottom = 334.0
+theme_override_font_sizes/font_size = 50
+text = "购买"
+script = ExtResource("5_xljnf")
+
+[node name="关闭" type="TextureButton" parent="菜单界面"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.065
+anchor_right = 0.125
+anchor_bottom = 0.065
+offset_left = -66.375
+offset_top = -30.42
+offset_right = 635.625
+offset_bottom = 432.58
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("6_togxx")
+texture_pressed = ExtResource("7_0ssfh")
+script = ExtResource("8_yvgb2")
+metadata/quit_style = 1

@@ -1,0 +1,58 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="代号：同福"
+run/main_scene="res://scenes/主游戏场景（集成子场景）.tscn"
+config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Quanju_var="*res://scripts/全局脚本/全局变量.gd"
+Quanju_table_var="*res://scripts/全局脚本/全局桌子变量.gd"
+Quanju_UI_var="*res://scripts/全局脚本/全局建筑扩展变量.gd"
+Food_var="*res://scripts/全局脚本/菜谱食材相关Food_var.gd"
+Customer_var="*res://scripts/全局脚本/全局客人相关Customer_var.gd"
+SceneChanger="*res://scenes/全局相关/场景转换.tscn"
+CustomerList="*res://scenes/全局相关/顾客列表.tscn"
+CustomerUtils="*res://scripts/全局脚本/顾客选择全局工具CustomerUtils.gd"
+Quanju_timer="*res://scenes/全局相关/计时器.tscn"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
+window/stretch/scale=0.5
+
+[global_group]
+
+"室外生成点"=""
+"室外消失点"=""
+"室外排队点"=""
+"顾客"=""
+
+[input]
+
+interact={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(107, 22),"global_position":Vector2(116, 68),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+
+[layer_names]
+
+2d_render/layer_2="UI"
+2d_render/layer_3="客人生成"
+2d_render/layer_4="客人排队"
+2d_physics/layer_1="客人"
+2d_physics/layer_2="桌椅"
